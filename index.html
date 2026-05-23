@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meghna Bhagwat · Product Manager</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #0f172a;
+      --ink-mid: #334155;
+      --ink-light: #64748b;
+      --ink-faint: #94a3b8;
+      --border: #e2e8f0;
+      --bg: #fafaf9;
+      --bg-card: #ffffff;
+      --accent: #1d4ed8;
+      --accent-light: #eff6ff;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 20px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(250, 250, 249, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: var(--ink-light);
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--ink); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 48px 80px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .hero-inner {
+      max-width: 720px;
+    }
+
+    .hero-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      color: var(--ink-faint);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 0.1s;
+    }
+
+    .hero-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(52px, 7vw, 88px);
+      font-weight: 500;
+      line-height: 1.05;
+      color: var(--ink);
+      margin-bottom: 28px;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 0.2s;
+    }
+
+    .hero-name em {
+      font-style: italic;
+      color: var(--ink-mid);
+    }
+
+    .hero-bio {
+      font-size: 17px;
+      color: var(--ink-mid);
+      line-height: 1.75;
+      max-width: 560px;
+      margin-bottom: 40px;
+      font-weight: 300;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 0.3s;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 48px;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 0.4s;
+    }
+
+    .tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      color: var(--ink-light);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 5px 14px;
+      background: var(--bg-card);
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 0.5s;
+    }
+
+    .btn-primary {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      background: var(--ink);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 12px 24px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .btn-primary:hover { background: var(--ink-mid); transform: translateY(-1px); }
+
+    .btn-secondary {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 12px 24px;
+      text-decoration: none;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .btn-secondary:hover { border-color: var(--ink-light); transform: translateY(-1px); }
+
+    /* SECTIONS */
+    section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 100px 48px;
+    }
+
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      color: var(--ink-faint);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .section-divider {
+      width: 100%;
+      height: 1px;
+      background: var(--border);
+      margin-bottom: 64px;
+    }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .about-text p {
+      color: var(--ink-mid);
+      font-size: 16px;
+      line-height: 1.8;
+      font-weight: 300;
+      margin-bottom: 20px;
+    }
+
+    .about-text p:last-child { margin-bottom: 0; }
+
+    .about-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .stat-item {
+      border-left: 2px solid var(--border);
+      padding-left: 20px;
+    }
+
+    .stat-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 40px;
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: var(--ink-light);
+      font-weight: 300;
+    }
+
+    /* PORTFOLIO */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .artifact-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .artifact-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    .artifact-card:hover {
+      border-color: #cbd5e1;
+      box-shadow: 0 8px 32px rgba(15, 23, 42, 0.08);
+      transform: translateY(-2px);
+    }
+
+    .artifact-card:hover::before { transform: scaleX(1); }
+
+    .artifact-card.featured {
+      grid-column: span 2;
+      flex-direction: row;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .artifact-card.featured .card-content { flex: 1; }
+    .artifact-card.featured .card-visual { flex: 0 0 280px; }
+
+    .card-type {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      color: var(--ink-faint);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card-type-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .card-type-dot.green { background: #16a34a; }
+    .card-type-dot.amber { background: #d97706; }
+    .card-type-dot.purple { background: #7c3aed; }
+    .card-type-dot.teal { background: #0d9488; }
+
+    .card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .card-description {
+      font-size: 14px;
+      color: var(--ink-light);
+      line-height: 1.7;
+      font-weight: 300;
+      margin-bottom: 24px;
+      flex: 1;
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: auto;
+    }
+
+    .card-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .card-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      color: var(--ink-faint);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 3px 8px;
+    }
+
+    .card-arrow {
+      font-size: 18px;
+      color: var(--ink-faint);
+      transition: color 0.2s, transform 0.2s;
+    }
+
+    .artifact-card:hover .card-arrow {
+      color: var(--accent);
+      transform: translate(2px, -2px);
+    }
+
+    .card-visual {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card-visual-icon {
+      font-size: 48px;
+      opacity: 0.15;
+    }
+
+    /* CONTACT */
+    .contact-inner {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 64px;
+    }
+
+    .contact-left { max-width: 480px; }
+
+    .contact-left p {
+      font-size: 16px;
+      color: var(--ink-mid);
+      line-height: 1.8;
+      font-weight: 300;
+      margin-bottom: 32px;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--ink);
+      font-size: 15px;
+      transition: color 0.2s;
+    }
+
+    .contact-link:hover { color: var(--accent); }
+
+    .contact-link-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: var(--ink-faint);
+      text-transform: uppercase;
+      width: 80px;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    footer p {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: 0.06em;
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav { padding: 16px 24px; }
+      .nav-links { display: none; }
+      .hero { padding: 100px 24px 60px; }
+      section { padding: 72px 24px; }
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .portfolio-grid { grid-template-columns: 1fr; }
+      .artifact-card.featured { grid-column: span 1; flex-direction: column; }
+      .artifact-card.featured .card-visual { display: none; }
+      .contact-inner { flex-direction: column; gap: 40px; }
+      footer { flex-direction: column; gap: 12px; text-align: center; padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-name">Meghna Bhagwat</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-inner">
+      <p class="hero-label">Product Manager · Seattle, WA</p>
+      <h1 class="hero-name">Meghna<br /><em>Bhagwat</em></h1>
+      <p class="hero-bio">
+        I build products and think in systems. With a background in backend engineering and a career path through enterprise software and GovTech, I bring technical depth to product decisions — and a bias for evidence over intuition.
+      </p>
+      <div class="hero-tags">
+        <span class="tag">Platform Products</span>
+        <span class="tag">Enterprise SaaS</span>
+        <span class="tag">Technical PM</span>
+        <span class="tag">Gen AI</span>
+        <span class="tag">Engineer Turned PM</span>
+      </div>
+      <div class="hero-cta">
+        <a href="#portfolio" class="btn-primary">View Portfolio</a>
+        <a href="https://www.linkedin.com/in/meghna-bhagwat/" target="_blank" class="btn-secondary">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <p class="section-label reveal">Background</p>
+    <h2 class="section-title reveal">Engineer turned PM,<br /><em>thinking in systems.</em></h2>
+    <div class="section-divider reveal"></div>
+    <div class="about-grid reveal">
+      <div class="about-text">
+        <p>
+          I started my career as a backend engineer building systems where failure was not an option — AML transaction monitoring, financial data pipelines, and compliance infrastructure for global banks. That foundation taught me to think in systems, not features.
+        </p>
+        <p>
+          I moved into product deliberately. Not because engineering was not working — it was. But I wanted to own the problem, not just the solution. The shift from Software Engineer to Product Owner to Product Manager was a choice I made each time I felt too comfortable.
+        </p>
+        <p>
+          Today I am focused on platform and technical product roles at companies building at scale. I bring engineering depth, a bias for evidence over intuition, and a genuine curiosity about how AI can make everyday work faster and less frustrating.
+        </p>
+      </div>
+      <div class="about-stats">
+        <div class="stat-item">
+          <div class="stat-number">6+</div>
+          <div class="stat-label">Years of product experience across enterprise SaaS and GovTech</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">10k+</div>
+          <div class="stat-label">Users served across enterprise platforms owned end to end</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">5</div>
+          <div class="stat-label">Portfolio artifacts spanning AI tools, platform teardowns, and metrics thinking</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio">
+    <p class="section-label reveal">Work</p>
+    <h2 class="section-title reveal">Portfolio</h2>
+    <div class="section-divider reveal"></div>
+
+    <div class="portfolio-grid">
+
+      <!-- Sentiment Analyser - Featured -->
+      <a href="https://sentiment-analyzer.meghna.app/" target="_blank" class="artifact-card featured reveal">
+        <div class="card-content">
+          <div class="card-type">
+            <span class="card-type-dot"></span>
+            Live Tool · AI Powered
+          </div>
+          <h3 class="card-title">Competitive Sentiment Analyser</h3>
+          <p class="card-description">
+            Pulls real user discussions from Reddit, Hacker News, and DEV.to and uses Claude to compare two competing products side by side. Applied to Microsoft's ecosystem to identify unmet user needs grounded in actual user voice, not assumptions.
+          </p>
+          <div class="card-footer">
+            <div class="card-tags">
+              <span class="card-tag">Competitive Intelligence</span>
+              <span class="card-tag">Claude API</span>
+              <span class="card-tag">React</span>
+            </div>
+            <span class="card-arrow">↗</span>
+          </div>
+        </div>
+        <div class="card-visual">
+          <span class="card-visual-icon">◈</span>
+        </div>
+      </a>
+
+      <!-- Metrics Framework Builder -->
+      <a href="https://metrics-framework-builder.meghna.app/" target="_blank" class="artifact-card reveal">
+        <div class="card-type">
+          <span class="card-type-dot green"></span>
+          Live Tool · AI Powered
+        </div>
+        <h3 class="card-title">Metrics Framework Builder</h3>
+        <p class="card-description">
+          Generates a rigorous, product specific metrics framework for any product. North star, input metrics ranked by criticality, guardrail metrics, and the vanity metrics to avoid. Built to close a gap in my own metrics thinking.
+        </p>
+        <div class="card-footer">
+          <div class="card-tags">
+            <span class="card-tag">Platform Metrics</span>
+            <span class="card-tag">Claude API</span>
+            <span class="card-tag">React</span>
+          </div>
+          <span class="card-arrow">↗</span>
+        </div>
+      </a>
+
+      <!-- Decision Navigator -->
+      <a href="pdfs/decision-navigator.pdf" target="_blank" class="artifact-card reveal">
+        <div class="card-type">
+          <span class="card-type-dot amber"></span>
+          Case Study · AI Tool
+        </div>
+        <h3 class="card-title">AI Decision Navigator</h3>
+        <p class="card-description">
+          An AI powered tool that helps structure thinking for high stakes, ambiguous decisions without making the decision for you. Built during a job search when decision fatigue was very real.
+        </p>
+        <div class="card-footer">
+          <div class="card-tags">
+            <span class="card-tag">Decision Making</span>
+            <span class="card-tag">AI Design</span>
+            <span class="card-tag">Case Study</span>
+          </div>
+          <span class="card-arrow">↗</span>
+        </div>
+      </a>
+
+      <!-- Stripe Teardown -->
+      <a href="pdfs/stripe-teardown.pdf" target="_blank" class="artifact-card reveal">
+        <div class="card-type">
+          <span class="card-type-dot purple"></span>
+          Platform Teardown
+        </div>
+        <h3 class="card-title">Stripe Platform Teardown</h3>
+        <p class="card-description">
+          A deep analysis of how Stripe built the gold standard developer payment platform. Covers API design philosophy, ecosystem extensibility, integration lock-in as a competitive moat, and platform metrics that matter.
+        </p>
+        <div class="card-footer">
+          <div class="card-tags">
+            <span class="card-tag">Platform Thinking</span>
+            <span class="card-tag">API Design</span>
+            <span class="card-tag">Ecosystem Strategy</span>
+          </div>
+          <span class="card-arrow">↗</span>
+        </div>
+      </a>
+
+      <!-- Seller Central Teardown -->
+      <a href="pdfs/seller-central-teardown.pdf" target="_blank" class="artifact-card reveal">
+        <div class="card-type">
+          <span class="card-type-dot teal"></span>
+          Platform Teardown
+        </div>
+        <h3 class="card-title">Amazon Seller Central Teardown</h3>
+        <p class="card-description">
+          How Amazon's seller platform balances ecosystem scale with buyer experience. Covers seller onboarding, the platform accountability paradox, analytics fragmentation, and the two metrics that tell you whether the platform is actually healthy.
+        </p>
+        <div class="card-footer">
+          <div class="card-tags">
+            <span class="card-tag">Marketplace Platform</span>
+            <span class="card-tag">Seller Experience</span>
+            <span class="card-tag">Platform Metrics</span>
+          </div>
+          <span class="card-arrow">↗</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <p class="section-label reveal">Get in touch</p>
+    <h2 class="section-title reveal">Let's talk.</h2>
+    <div class="section-divider reveal"></div>
+    <div class="contact-inner reveal">
+      <div class="contact-left">
+        <p>
+          I am actively looking for platform and technical PM roles at companies building at scale. If you are building something that needs a PM who can sit in a technical design review in the morning and a stakeholder strategy session in the afternoon, I would love to connect.
+        </p>
+        <div class="contact-links">
+          <a href="https://www.linkedin.com/in/meghna-bhagwat/" target="_blank" class="contact-link">
+            <span class="contact-link-label">LinkedIn</span>
+            <span>linkedin.com/in/meghna-bhagwat</span>
+          </a>
+          <a href="https://meghnabhagwat.com" class="contact-link">
+            <span class="contact-link-label">Website</span>
+            <span>meghnabhagwat.com</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Meghna Bhagwat</p>
+    <p>Built with intention · Hosted on Vercel</p>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, i * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
