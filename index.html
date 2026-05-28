@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meghna Bhagwat · Product Manager</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Lato:wght@300;400;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #1f0f0e;
+      --ink-mid: #3d1a18;
+      --ink-light: #6b2d2a;
+      --ink-faint: #a85550;
+      --border: #f0ddd9;
+      --bg: #ffffff;
+      --bg-card: #fafafa;
+      --primary: #e85d4a;
+      --primary-dark: #d04a38;
+      --primary-light: #fff1ef;
+      --secondary: #0f766e;
+      --secondary-dark: #0d6460;
+      --secondary-light: #f0fdfa;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 18px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--primary);
+      border-bottom: none;
+    }
+
+    .nav-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 500;
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      color: rgba(255, 255, 255, 0.75);
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: #ffffff; }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 48px 80px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 200px;
+      gap: 64px;
+      align-items: center;
+      width: 100%;
+    }
+
+    .hero-photo-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 0.1s;
+    }
+
+    .hero-photo {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: contain;
+      border: 4px solid var(--border);
+      box-shadow: 0 8px 32px rgba(232, 93, 74, 0.15);
+    }
+
+    .hero-photo-placeholder {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: var(--primary-light);
+      border: 4px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
+      color: var(--primary);
+    }
+
+    .hero-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      color: var(--ink-mid);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      font-weight: 600;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 0.2s;
+    }
+
+    .hero-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(44px, 6vw, 72px);
+      font-weight: 500;
+      line-height: 1.08;
+      color: var(--ink);
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 0.3s;
+    }
+
+    .hero-name em { font-style: italic; color: var(--primary); }
+
+    .hero-bio {
+      font-size: 16px;
+      color: var(--ink-mid);
+      line-height: 1.8;
+      max-width: 560px;
+      margin-bottom: 32px;
+      font-weight: 400;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 0.4s;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 40px;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 0.5s;
+    }
+
+    .tag {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      color: var(--ink-mid);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 5px 14px;
+      background: var(--bg-card);
+      font-weight: 500;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 0.6s;
+    }
+
+    .btn-primary {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 11px 22px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .btn-primary:hover { background: var(--primary-dark); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(232,93,74,0.3); }
+
+    .btn-secondary {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 11px 22px;
+      text-decoration: none;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .btn-secondary:hover { border-color: var(--ink-light); transform: translateY(-1px); }
+
+    .btn-outline {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      background: transparent;
+      color: var(--secondary);
+      border: 1px solid var(--secondary);
+      border-radius: 6px;
+      padding: 11px 22px;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s, transform 0.2s;
+    }
+
+    .btn-outline:hover { background: var(--secondary-dark); color: #fff; transform: translateY(-1px); }
+
+    /* SECTIONS */
+    section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 90px 48px;
+    }
+
+    .section-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      color: var(--ink-mid);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(30px, 4vw, 44px);
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--primary);
+    }
+
+    .section-divider {
+      width: 100%;
+      height: 1px;
+      background: var(--border);
+      margin-bottom: 56px;
+    }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .about-text p {
+      color: var(--ink-mid);
+      font-size: 15px;
+      line-height: 1.85;
+      margin-bottom: 18px;
+    }
+
+    .about-text p:last-child { margin-bottom: 0; }
+
+    .about-stats { display: flex; flex-direction: column; gap: 28px; }
+
+    .stat-item { border-left: 2px solid var(--primary); padding-left: 20px; }
+
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 38px;
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-label { font-size: 13px; color: var(--ink-mid); }
+
+    /* EXPERIENCE */
+    .experience-list { display: flex; flex-direction: column; }
+
+    .experience-item {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 32px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--border);
+      align-items: start;
+    }
+
+    .exp-date {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      color: var(--ink-mid);
+      padding-top: 4px;
+      font-weight: 500;
+    }
+
+    .exp-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .exp-company {
+      font-size: 14px;
+      color: var(--secondary);
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: 0.02em;
+    }
+
+    .exp-desc { font-size: 13px; color: var(--ink-light); line-height: 1.7; }
+
+    /* PORTFOLIO */
+    .portfolio-grid { display: flex; flex-direction: column; gap: 28px; }
+
+    /* TOOL CARD */
+    .tool-card-wrap {}
+
+    .tool-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px 16px 0 0;
+      overflow: hidden;
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+      position: relative;
+    }
+
+    .tool-card-no-doc {
+      border-radius: 16px;
+    }
+
+    .tool-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--primary);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+
+
+    .tool-card:hover {
+      border-color: #c9b99a;
+      box-shadow: 0 8px 32px rgba(232, 93, 74, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .tool-card:hover::before { transform: scaleX(1); }
+
+    .tool-card-inner {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+    }
+
+    .tool-card-text { padding: 36px; }
+
+    .tool-card-preview {
+      border-left: 1px solid var(--border);
+      overflow: hidden;
+      background: var(--bg);
+      min-height: 360px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .tool-card-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      display: block;
+      padding: 12px;
+      transition: filter 0.2s ease;
+    }
+
+    .tool-card-preview a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+    }
+
+    .tool-card-preview a:hover img {
+      filter: brightness(0.88);
+    }
+
+    .tool-card-preview-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: var(--ink-faint);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+    }
+
+    /* CARD COMMON */
+    .card-type {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      color: var(--ink-light);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+    }
+
+    .card-type-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--primary);
+      flex-shrink: 0;
+    }
+
+    
+    
+    .card-type-dot.purple { background: var(--secondary); }
+    .card-type-dot.teal { background: var(--secondary); }
+
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 500;
+      color: var(--secondary);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    /* WHAT AND WHY - stacked vertically */
+    .card-what-why-stack { margin-bottom: 24px; }
+
+    .card-ww-item { margin-bottom: 16px; }
+    .card-ww-item:last-child { margin-bottom: 0; }
+
+    .card-section-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      color: var(--ink-light);
+      text-transform: uppercase;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+
+    .card-section-text {
+      font-size: 14px;
+      color: var(--ink-mid);
+      line-height: 1.75;
+    }
+
+    /* WHAT AND WHY - side by side for tool cards */
+    .card-what-why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      border-top: 1px solid var(--border);
+      gap: 12px;
+      flex-wrap: wrap;
+      background: var(--primary-light);
+      border-radius: 0 0 12px 12px;
+      margin: 0 -36px -36px -36px;
+    }
+
+    .card-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+
+    .card-tag {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.03em;
+      color: var(--ink-light);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 3px 8px;
+      font-weight: 500;
+    }
+
+    .card-btn {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      border-radius: 6px;
+      padding: 7px 16px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.2s, color 0.2s;
+      border: 1px solid;
+    }
+
+    .card-btn { color: var(--secondary); border-color: var(--secondary); }
+    .card-btn:hover { background: var(--secondary-dark); color: #fff; }
+    .card-btn.red { color: var(--secondary); border-color: var(--secondary); }
+    .card-btn.red:hover { background: var(--secondary-dark); color: #fff; }
+    .card-btn.green { color: var(--secondary); border-color: var(--secondary); }
+    .card-btn.green:hover { background: var(--secondary-dark); color: #fff; }
+    .card-btn.gold { color: var(--secondary); border-color: var(--secondary); }
+    .card-btn.gold:hover { background: var(--secondary-dark); color: #fff; }
+    .card-btn.purple { color: var(--secondary); border-color: var(--secondary); }
+    .card-btn.purple:hover { background: var(--secondary-dark); color: #fff; }
+    .card-btn.teal { color: var(--secondary); border-color: var(--secondary); }
+    .card-btn.teal:hover { background: var(--secondary-dark); color: #fff; }
+
+    .card-btn-group { display: flex; gap: 8px; flex-wrap: wrap; }
+
+    /* CASE STUDY ROW */
+    .case-study-row {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-top: none;
+      border-radius: 0 0 16px 16px;
+      padding: 18px 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .case-study-row.green {
+      background: var(--bg-card);
+      border-color: var(--border);
+    }
+
+    .case-study-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      color: var(--primary);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+
+    .case-study-desc {
+      font-size: 13px;
+      color: var(--ink-mid);
+      line-height: 1.6;
+      max-width: 680px;
+    }
+
+    .case-study-link {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      border-radius: 6px;
+      padding: 8px 16px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.2s, color 0.2s;
+      flex-shrink: 0;
+      border: 1px solid;
+    }
+
+    .case-study-link.red { color: var(--secondary); border-color: var(--secondary); }
+    .case-study-link.red:hover { background: var(--secondary-dark); color: #fff; }
+    .case-study-link.green { color: var(--secondary); border-color: var(--secondary); }
+    .case-study-link.green:hover { background: var(--secondary-dark); color: #fff; }
+
+    /* STANDALONE CARDS (decision navigator, teardowns) */
+    .standalone-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 36px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    }
+
+    .standalone-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    .standalone-card.gold::before { background: var(--secondary); }
+    .standalone-card.purple::before { background: var(--secondary); }
+    .standalone-card.teal::before { background: var(--secondary); }
+
+    .standalone-card:hover {
+      border-color: #c9b99a;
+      box-shadow: 0 8px 24px rgba(232, 93, 74, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .standalone-card:hover::before { transform: scaleX(1); }
+
+    /* CONTACT */
+    .contact-inner { display: flex; flex-direction: column; gap: 32px; }
+
+    .contact-left p {
+      font-size: 15px;
+      color: var(--ink-mid);
+      line-height: 1.85;
+      margin-bottom: 32px;
+      max-width: 580px;
+    }
+
+    .contact-links { display: flex; flex-direction: column; gap: 16px; }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      text-decoration: none;
+      color: var(--ink);
+      font-size: 15px;
+      transition: color 0.2s;
+    }
+
+    .contact-link:hover { color: var(--primary); }
+
+    .contact-link-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      color: var(--ink-light);
+      text-transform: uppercase;
+      width: 80px;
+      flex-shrink: 0;
+      font-weight: 600;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 48px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    footer p {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13px;
+      color: var(--ink-light);
+      letter-spacing: 0.04em;
+      font-weight: 500;
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav { padding: 16px 24px; }
+      .nav-links { display: none; }
+      .hero { padding: 100px 24px 60px; }
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-photo-wrap { order: -1; }
+      section { padding: 64px 24px; }
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .tool-card-inner { grid-template-columns: 1fr; }
+      .tool-card-preview { display: none; }
+      .card-what-why-grid { grid-template-columns: 1fr; }
+      .experience-item { grid-template-columns: 1fr; gap: 8px; }
+      .case-study-row { flex-direction: column; align-items: flex-start; }
+      footer { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-name">Meghna Bhagwat</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <p class="hero-label">Product Manager · Seattle, WA</p>
+        <h1 class="hero-name">Meghna<br /><em>Bhagwat</em></h1>
+        <p class="hero-bio">I build products and think in systems. My background spans backend engineering and enterprise software, giving me the technical depth to engage meaningfully in design decisions and the product instinct to translate complexity into things people actually use.</p>
+        <div class="hero-tags">
+          <span class="tag">Platform Products</span>
+          <span class="tag">Enterprise SaaS</span>
+          <span class="tag">Technical PM</span>
+          <span class="tag">Gen AI</span>
+          <span class="tag">Engineer Turned PM</span>
+        </div>
+        <div class="hero-cta">
+          <a href="#portfolio" class="btn-primary">View Portfolio</a>
+          <a href="https://www.linkedin.com/in/meghna-bhagwat/" target="_blank" class="btn-secondary">LinkedIn</a>
+
+        </div>
+      </div>
+      <div class="hero-photo-wrap">
+        <img src="photo.jpg" alt="Meghna Bhagwat" class="hero-photo"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="hero-photo-placeholder" style="display:none;">M</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <p class="section-label reveal">Background</p>
+    <h2 class="section-title reveal">Engineer turned PM,<br /><em>thinking in systems.</em></h2>
+    <div class="section-divider reveal"></div>
+    <div class="about-grid reveal">
+      <div class="about-text">
+        <p>I started my career as a backend engineer building systems like AML transaction monitoring, financial data pipelines, and compliance infrastructure for global banks. That foundation taught me to think in systems, not features.</p>
+        <p>I moved into product deliberately. I wanted to own the problem, not just the solution. The shift from Software Engineer to Product Owner to Product Manager was a choice I made each time I felt too comfortable.</p>
+        <p>Today I am focused on platform and technical product roles at companies building at scale. I bring engineering depth, a bias for evidence over intuition, and a genuine curiosity about how AI can make everyday work faster and less frustrating.</p>
+      </div>
+      <div class="about-stats">
+        <div class="stat-item">
+          <div class="stat-number">6+</div>
+          <div class="stat-label">Years of product experience across enterprise SaaS and GovTech</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">10k+</div>
+          <div class="stat-label">Users served across enterprise platforms owned end to end</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">5</div>
+          <div class="stat-label">Portfolio artifacts spanning AI tools, platform teardowns, and metrics thinking</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <p class="section-label reveal">Career</p>
+    <h2 class="section-title reveal">Experience</h2>
+    <div class="section-divider reveal"></div>
+    <div class="experience-list reveal">
+      <div class="experience-item">
+        <div class="exp-date">Jan 2024 – Jul 2025</div>
+        <div class="exp-content">
+          <div class="exp-title">Product Manager</div>
+          <div class="exp-company">ASRC Federal Data Solutions · Seattle, US</div>
+          <div class="exp-desc">Owned product vision and roadmap for enterprise platform serving 10,000+ users. Built post-launch measurement systems, authored data-backed narratives for senior leadership, and led cross-functional redesign of onboarding that drove sustained feature adoption.</div>
+        </div>
+      </div>
+      <div class="experience-item">
+        <div class="exp-date">Mar 2019 – Dec 2023</div>
+        <div class="exp-content">
+          <div class="exp-title">Technical Product Owner</div>
+          <div class="exp-company">ASRC Federal Data Solutions · Reston, US</div>
+          <div class="exp-desc">Primary liaison between business, engineering, and leadership. Reduced backlog aging by 30% through structured sprint reviews and usage-based reprioritisation. Recognised twice as Rockstar of the Quarter for cross-functional leadership.</div>
+        </div>
+      </div>
+      <div class="experience-item">
+        <div class="exp-date">May 2018 – Oct 2018</div>
+        <div class="exp-content">
+          <div class="exp-title">Business Data Analyst Intern</div>
+          <div class="exp-company">Federal Home Loan Bank of Chicago · Chicago, US</div>
+          <div class="exp-desc">Designed automated data visualisation dashboards in Tableau, cutting report generation time by 40%. Implemented two new KPI metrics that improved executive reporting accuracy by 20%.</div>
+        </div>
+      </div>
+      <div class="experience-item">
+        <div class="exp-date">Mar 2016 – Aug 2017</div>
+        <div class="exp-content">
+          <div class="exp-title">Senior Software Engineer</div>
+          <div class="exp-company">HSBC Global Technology · Pune, India</div>
+          <div class="exp-desc">Delivered AML transaction monitoring and customer profiling systems. Drove CI/CD adoption across 4 engineering teams, achieving 67% departmental adoption in 3 months through hands-on enablement.</div>
+        </div>
+      </div>
+      <div class="experience-item">
+        <div class="exp-date">Mar 2012 – Mar 2016</div>
+        <div class="exp-content">
+          <div class="exp-title">Software Engineer</div>
+          <div class="exp-company">Tata Consultancy Services · Pune, India</div>
+          <div class="exp-desc">Reduced development time by 40% through reusable software components. Represented the engineering team in executive-level stakeholder communications influencing decisions across 2 business units.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio">
+    <p class="section-label reveal">Work</p>
+    <h2 class="section-title reveal">Portfolio</h2>
+    <div class="section-divider reveal"></div>
+
+    <div class="portfolio-grid">
+
+      <!-- Sentiment Analyser -->
+      <div class="tool-card-wrap reveal">
+        <div class="tool-card">
+          <div class="tool-card-inner">
+            <div class="tool-card-text">
+              <div class="card-type"><span class="card-type-dot"></span>Live Tool · AI Powered</div>
+              <h3 class="card-title">Competitive Sentiment Analyser</h3>
+              <div class="card-what-why-grid">
+                <div class="card-ww-item">
+                  <p class="card-section-label">What it does</p>
+                  <p class="card-section-text">Pulls real user discussions from Reddit, Hacker News, and DEV.to and uses Claude to compare two competing products side by side — sentiment scores, top praises, pain points, and competitive insights.</p>
+                </div>
+                <div class="card-ww-item">
+                  <p class="card-section-label">Why I built it</p>
+                  <p class="card-section-text">I wanted to ground competitive analysis in actual user voice rather than assumptions. Applied it to Microsoft's ecosystem to identify unmet user needs and surface product opportunities.</p>
+                </div>
+              </div>
+              <div class="card-footer">
+                <div class="card-tags">
+                  <span class="card-tag">Competitive Intelligence</span>
+                  <span class="card-tag">Claude API</span>
+                  <span class="card-tag">React</span>
+                </div>
+                <a href="https://sentiment-analyzer.meghna.app/" target="_blank" class="card-btn red">Try the tool ↗</a>
+              </div>
+            </div>
+            <div class="tool-card-preview">
+              <a href="https://sentiment-analyzer.meghna.app/" target="_blank">
+                <img src="images/sentiment-analyzer-screenshot.jpg" alt="Sentiment Analyser — click to open tool"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              </a>
+              <div class="tool-card-preview-placeholder" style="display:none;">
+                <span style="font-size:32px;opacity:0.2;">◈</span>
+                <span>Screenshot coming soon</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="case-study-row">
+          <div>
+            <p class="case-study-label">📄 Case Study</p>
+            <p class="case-study-desc">A competitive intelligence study applying the engine to Microsoft's ecosystem — Edge AI vs Chrome AI and Teams vs Slack. Covers methodology, findings, and product recommendations grounded in real user data.</p>
+          </div>
+          <a href="pdfs/sentiment-analyzer-case-study.pdf" target="_blank" class="case-study-link red">Read Case Study ↗</a>
+        </div>
+      </div>
+
+      <!-- Metrics Framework Builder -->
+      <div class="tool-card-wrap reveal">
+        <div class="tool-card green">
+          <div class="tool-card-inner">
+            <div class="tool-card-text">
+              <div class="card-type"><span class="card-type-dot green"></span>Live Tool · AI Powered</div>
+              <h3 class="card-title">Metrics Framework Builder</h3>
+              <div class="card-what-why-grid">
+                <div class="card-ww-item">
+                  <p class="card-section-label">What it does</p>
+                  <p class="card-section-text">Generates a rigorous, product-specific metrics framework — north star, three leading input metrics ranked by criticality, guardrail metrics, and the vanity metrics to avoid.</p>
+                </div>
+                <div class="card-ww-item">
+                  <p class="card-section-label">Why I built it</p>
+                  <p class="card-section-text">Metrics was the area I knew I needed to get sharper on. I studied the framework deliberately then built a tool that forces me to apply it every time while stopping me from defaulting to vanity metrics.</p>
+                </div>
+              </div>
+              <div class="card-footer">
+                <div class="card-tags">
+                  <span class="card-tag">Platform Metrics</span>
+                  <span class="card-tag">Claude API</span>
+                  <span class="card-tag">React</span>
+                </div>
+                <a href="https://metrics-framework-builder.meghna.app/" target="_blank" class="card-btn green">Try the tool ↗</a>
+              </div>
+            </div>
+            <div class="tool-card-preview">
+              <a href="https://metrics-framework-builder.meghna.app/" target="_blank">
+                <img src="images/metrics-framework-screenshot.jpg" alt="Metrics Framework Builder — click to open tool"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              </a>
+              <div class="tool-card-preview-placeholder" style="display:none;">
+                <span style="font-size:32px;opacity:0.2;">◈</span>
+                <span>Screenshot coming soon</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="case-study-row green">
+          <div>
+            <p class="case-study-label">📄 Case Study</p>
+            <p class="case-study-desc">Covers why the tool was built, the five-layer metrics framework it generates, and the shift from defaulting to vanity metrics to defining north stars grounded in real user value.</p>
+          </div>
+          <a href="pdfs/metrics-framework-builder.pdf" target="_blank" class="case-study-link green">Read Case Study ↗</a>
+        </div>
+      </div>
+
+      <!-- Decision Navigator -->
+      <div class="standalone-card gold reveal">
+        <div class="card-type"><span class="card-type-dot gold"></span>Case Study · AI Tool</div>
+        <h3 class="card-title">AI Decision Navigator</h3>
+        <div class="card-what-why-stack">
+          <div class="card-ww-item">
+            <p class="card-section-label">What it does</p>
+            <p class="card-section-text">An AI-powered tool that structures thinking for high-stakes, ambiguous decisions. It clarifies context, surfaces assumptions, and lays out options without making the decision for you.</p>
+          </div>
+          <div class="card-ww-item">
+            <p class="card-section-label">Why I built it</p>
+            <p class="card-section-text">Job searching surfaces decision fatigue in ways I did not anticipate. Choosing between opportunities, roles, and tradeoffs under financial pressure needed structure, not more advice. The tool forces clarity before conclusions.</p>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="card-tags">
+            <span class="card-tag">Decision Making</span>
+            <span class="card-tag">AI Design</span>
+            <span class="card-tag">Case Study</span>
+          </div>
+          <a href="pdfs/decision-navigator.pdf" target="_blank" class="card-btn gold">Read Case Study ↗</a>
+        </div>
+      </div>
+
+      <!-- Stripe Teardown -->
+      <div class="standalone-card purple reveal">
+        <div class="card-type"><span class="card-type-dot purple"></span>Platform Teardown</div>
+        <h3 class="card-title">Stripe Platform Teardown</h3>
+        <div class="card-what-why-stack">
+          <div class="card-ww-item">
+            <p class="card-section-label">What it covers</p>
+            <p class="card-section-text">A deep analysis of Stripe's API design philosophy, ecosystem extensibility strategy, and platform metrics. Includes an original product recommendation for reducing developer onboarding friction inside test mode.</p>
+          </div>
+          <div class="card-ww-item">
+            <p class="card-section-label">Why I wrote it</p>
+            <p class="card-section-text">I came at Stripe as a former backend engineer who built the financial systems Stripe abstracts away. That perspective gave me a specific lens on what they got right and why their moat is harder to replicate than most people think.</p>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="card-tags">
+            <span class="card-tag">Platform Thinking</span>
+            <span class="card-tag">API Design</span>
+            <span class="card-tag">Ecosystem Strategy</span>
+          </div>
+          <a href="pdfs/stripe-teardown.pdf" target="_blank" class="card-btn purple">Read Teardown ↗</a>
+        </div>
+      </div>
+
+      <!-- Seller Central Teardown -->
+      <div class="standalone-card teal reveal">
+        <div class="card-type"><span class="card-type-dot teal"></span>Platform Teardown</div>
+        <h3 class="card-title">Amazon Seller Central Teardown</h3>
+        <div class="card-what-why-stack">
+          <div class="card-ww-item">
+            <p class="card-section-label">What it covers</p>
+            <p class="card-section-text">An analysis of how Amazon's seller platform balances ecosystem scale with buyer experience. Covers seller onboarding, the platform accountability paradox, analytics fragmentation, and the two metrics that tell you whether the platform is actually healthy.</p>
+          </div>
+          <div class="card-ww-item">
+            <p class="card-section-label">Why I wrote it</p>
+            <p class="card-section-text">Marketplaces are one of the most complex platform types to get right. They serve two distinct users simultaneously and have to balance their needs constantly. Studying Seller Central was a way to understand how a platform at massive scale makes that tradeoff, and what a buyer-first north star looks like in practice across every product decision.</p>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="card-tags">
+            <span class="card-tag">Marketplace Platform</span>
+            <span class="card-tag">Seller Experience</span>
+            <span class="card-tag">Platform Metrics</span>
+          </div>
+          <a href="pdfs/seller-central-teardown.pdf" target="_blank" class="card-btn teal">Read Teardown ↗</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <p class="section-label reveal">Get in touch</p>
+    <h2 class="section-title reveal">Let's talk.</h2>
+    <div class="section-divider reveal"></div>
+    <div class="contact-inner reveal">
+      <div class="contact-left">
+        <p>I am actively looking for platform and technical PM roles at companies building at scale. If you are building something that needs a PM who can sit in a technical design review in the morning and a stakeholder strategy session in the afternoon, I would love to connect.</p>
+        <div class="contact-links">
+          <div class="contact-link">
+            <span class="contact-link-label">Email</span>
+            <span>hello@meghnabhagwat.com</span>
+            <button onclick="copyEmail()" id="copy-btn" style="font-family: 'Space Grotesk', sans-serif; font-size: 11px; letter-spacing: 0.06em; background: transparent; color: var(--secondary); border: 1px solid var(--secondary); border-radius: 4px; padding: 3px 10px; cursor: pointer; transition: background 0.2s, color 0.2s; margin-left: 8px;">Copy</button>
+          </div>
+          <a href="https://www.linkedin.com/in/meghna-bhagwat/" target="_blank" class="contact-link">
+            <span class="contact-link-label">LinkedIn</span>
+            <span>linkedin.com/in/meghna-bhagwat</span>
+          </a>
+          <a href="https://meghnabhagwat.com" class="contact-link">
+            <span class="contact-link-label">Website</span>
+            <span>meghnabhagwat.com</span>
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Meghna Bhagwat</p>
+  </footer>
+
+  <script>
+    function copyEmail() {
+      navigator.clipboard.writeText('hello@meghnabhagwat.com').then(() => {
+        const btn = document.getElementById('copy-btn');
+        btn.textContent = 'Copied!';
+        btn.style.background = 'var(--secondary)';
+        btn.style.color = '#fff';
+        setTimeout(() => {
+          btn.textContent = 'Copy';
+          btn.style.background = 'transparent';
+          btn.style.color = 'var(--secondary)';
+        }, 2000);
+      });
+    }
+
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
