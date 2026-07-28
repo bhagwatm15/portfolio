@@ -544,6 +544,8 @@
     .card-btn:hover { background: var(--secondary-dark); color: #fff; }
     .card-btn.red { color: var(--secondary); border-color: var(--secondary); }
     .card-btn.red:hover { background: var(--secondary-dark); color: #fff; }
+    .card-btn.blue { color: var(--secondary); border-color: var(--secondary); }
+    .card-btn.blue:hover { background: var(--secondary-dark); color: #fff; }
     .card-btn.green { color: var(--secondary); border-color: var(--secondary); }
     .card-btn.green:hover { background: var(--secondary-dark); color: #fff; }
     .card-btn.gold { color: var(--secondary); border-color: var(--secondary); }
@@ -605,6 +607,8 @@
 
     .case-study-link.red { color: var(--secondary); border-color: var(--secondary); }
     .case-study-link.red:hover { background: var(--secondary-dark); color: #fff; }
+    .case-study-link.blue { color: var(--secondary); border-color: var(--secondary); }
+    .case-study-link.blue:hover { background: var(--secondary-dark); color: #fff; }
     .case-study-link.green { color: var(--secondary); border-color: var(--secondary); }
     .case-study-link.green:hover { background: var(--secondary-dark); color: #fff; }
 
@@ -854,6 +858,53 @@
 
     <div class="portfolio-grid">
 
+      <!-- Idea to Prototype Pipeline -->
+      <div class="tool-card-wrap reveal">
+        <div class="tool-card blue">
+          <div class="tool-card-inner">
+            <div class="tool-card-text">
+              <div class="card-type"><span class="card-type-dot blue"></span>Live Tool · AI Powered</div>
+              <h3 class="card-title">Idea to Prototype Pipeline</h3>
+              <div class="card-what-why-grid">
+                <div class="card-ww-item">
+                  <p class="card-section-label">What it does</p>
+                  <p class="card-section-text">Turns a one-line idea into a structured spec covering the problem, target user, screens, and what's explicitly out of scope. It includes one editable review checkpoint, then hands the approved spec to v0 to generate a real, clickable prototype.</p>
+                </div>
+                <div class="card-ww-item">
+                  <p class="card-section-label">Why I built it</p>
+                  <p class="card-section-text">Spec-to-screen normally means waiting on design or engineering time. I wanted to test whether chaining AI tools together could compress that loop into minutes, cutting anything that didn't earn its place, like a moodboard stage that turned out to add no real value.</p>
+                </div>
+              </div>
+              <div class="card-footer">
+                <div class="card-tags">
+                  <span class="card-tag">AI Pipeline Design</span>
+                  <span class="card-tag">Claude API</span>
+                  <span class="card-tag">v0 API</span>
+                </div>
+                <a href="https://idea-to-prototype.meghna.app/" target="_blank" class="card-btn blue">Try the tool ↗</a>
+              </div>
+            </div>
+            <div class="tool-card-preview">
+              <a href="https://idea-to-prototype.meghna.app/" target="_blank">
+                <img src="images/idea-to-prototype-screenshot.jpg" alt="Idea to Prototype Pipeline — click to open tool"
+                  onerror="this.parentElement.style.display='none'; this.parentElement.nextElementSibling.style.display='flex';" />
+              </a>
+              <div class="tool-card-preview-placeholder" style="display:none;">
+                <span style="font-size:32px;opacity:0.2;">◈</span>
+                <span>Screenshot coming soon</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="case-study-row">
+          <div>
+            <p class="case-study-label">📄 Case Study</p>
+            <p class="case-study-desc">Covers the three-stage build, a real PM working example, and what I learned chaining AI tools together, including negative prompts backfiring in image generation, cutting a stage that added no value, and why hosted prototyping tools can't always be embedded inline.</p>
+          </div>
+          <a href="pdfs/idea-to-prototype-case-study.pdf" target="_blank" class="case-study-link blue">Read Case Study ↗</a>
+        </div>
+      </div>
+
       <!-- Sentiment Analyser -->
       <div class="tool-card-wrap reveal">
         <div class="tool-card">
@@ -883,7 +934,7 @@
             <div class="tool-card-preview">
               <a href="https://sentiment-analyzer.meghna.app/" target="_blank">
                 <img src="images/sentiment-analyzer-screenshot.jpg" alt="Sentiment Analyser — click to open tool"
-                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                  onerror="this.parentElement.style.display='none'; this.parentElement.nextElementSibling.style.display='flex';" />
               </a>
               <div class="tool-card-preview-placeholder" style="display:none;">
                 <span style="font-size:32px;opacity:0.2;">◈</span>
@@ -930,7 +981,7 @@
             <div class="tool-card-preview">
               <a href="https://metrics-framework-builder.meghna.app/" target="_blank">
                 <img src="images/metrics-framework-screenshot.jpg" alt="Metrics Framework Builder — click to open tool"
-                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                  onerror="this.parentElement.style.display='none'; this.parentElement.nextElementSibling.style.display='flex';" />
               </a>
               <div class="tool-card-preview-placeholder" style="display:none;">
                 <span style="font-size:32px;opacity:0.2;">◈</span>
