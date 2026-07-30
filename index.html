@@ -611,6 +611,8 @@
     .case-study-link.blue:hover { background: var(--secondary-dark); color: #fff; }
     .case-study-link.green { color: var(--secondary); border-color: var(--secondary); }
     .case-study-link.green:hover { background: var(--secondary-dark); color: #fff; }
+    .case-study-link.gold { color: var(--secondary); border-color: var(--secondary); }
+    .case-study-link.gold:hover { background: var(--secondary-dark); color: #fff; }
 
     /* STANDALONE CARDS (decision navigator, teardowns) */
     .standalone-card {
@@ -1000,26 +1002,49 @@
       </div>
 
       <!-- Decision Navigator -->
-      <div class="standalone-card gold reveal">
-        <div class="card-type"><span class="card-type-dot gold"></span>Case Study · AI Tool</div>
-        <h3 class="card-title">AI Decision Navigator</h3>
-        <div class="card-what-why-stack">
-          <div class="card-ww-item">
-            <p class="card-section-label">What it does</p>
-            <p class="card-section-text">An AI-powered tool that structures thinking for high-stakes, ambiguous decisions. It clarifies context, surfaces assumptions, and lays out options without making the decision for you.</p>
-          </div>
-          <div class="card-ww-item">
-            <p class="card-section-label">Why I built it</p>
-            <p class="card-section-text">Job searching surfaces decision fatigue in ways I did not anticipate. Choosing between opportunities, roles, and tradeoffs under financial pressure needed structure, not more advice. The tool forces clarity before conclusions.</p>
+      <div class="tool-card-wrap reveal">
+        <div class="tool-card gold">
+          <div class="tool-card-inner">
+            <div class="tool-card-text">
+              <div class="card-type"><span class="card-type-dot"></span>Live Tool · AI Powered</div>
+              <h3 class="card-title">AI Decision Navigator</h3>
+              <div class="card-what-why-grid">
+                <div class="card-ww-item">
+                  <p class="card-section-label">What it does</p>
+                  <p class="card-section-text">An AI-powered tool that structures thinking for high-stakes, ambiguous decisions. It clarifies context, surfaces assumptions, and lays out options without making the decision for you.</p>
+                </div>
+                <div class="card-ww-item">
+                  <p class="card-section-label">Why I built it</p>
+                  <p class="card-section-text">Job searching surfaces decision fatigue in ways I did not anticipate. Choosing between opportunities, roles, and tradeoffs under financial pressure needed structure, not more advice. The tool forces clarity before conclusions.</p>
+                </div>
+              </div>
+              <div class="card-footer">
+                <div class="card-tags">
+                  <span class="card-tag">Decision Making</span>
+                  <span class="card-tag">Claude API</span>
+                  <span class="card-tag">Next.js</span>
+                </div>
+                <a href="https://decision-navigator.meghna.app/" target="_blank" class="card-btn gold">Try the tool ↗</a>
+              </div>
+            </div>
+            <div class="tool-card-preview">
+              <a href="https://decision-navigator.meghna.app/" target="_blank">
+                <img src="images/decision-navigator-screenshot.jpg" alt="AI Decision Navigator — click to open tool"
+                  onerror="this.parentElement.style.display='none'; this.parentElement.nextElementSibling.style.display='flex';" />
+              </a>
+              <div class="tool-card-preview-placeholder" style="display:none;">
+                <span style="font-size:32px;opacity:0.2;">◈</span>
+                <span>Screenshot coming soon</span>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="card-footer">
-          <div class="card-tags">
-            <span class="card-tag">Decision Making</span>
-            <span class="card-tag">AI Design</span>
-            <span class="card-tag">Case Study</span>
+        <div class="case-study-row">
+          <div>
+            <p class="case-study-label">📄 Case Study</p>
+            <p class="case-study-desc">Covers writing the system prompt like a PRD, with each rule targeting a specific failure mode, like jumping to advice too early, projecting false certainty, or letting emotional bias shape the reasoning. Also covers the qualitative evaluation framework used in place of a right answer, and honest learnings like how vague inputs still led to vague outputs.</p>
           </div>
-          <a href="pdfs/decision-navigator.pdf" target="_blank" class="card-btn gold">Read Case Study ↗</a>
+          <a href="pdfs/decision-navigator.pdf" target="_blank" class="case-study-link gold">Read Case Study ↗</a>
         </div>
       </div>
 
