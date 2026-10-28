@@ -560,6 +560,33 @@
     /* CARD RESULT LINE */
     .card-result-line { margin-bottom: 24px; }
 
+    /* MORE WORK CARD THUMBNAIL */
+    .standalone-card-flex { display: flex; gap: 20px; align-items: flex-start; }
+
+    .card-thumb-link {
+      flex-shrink: 0;
+      width: 140px;
+      aspect-ratio: 4 / 3;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      display: block;
+      background: var(--bg);
+    }
+
+    .card-thumb-link img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top left;
+      display: block;
+      transition: filter 0.2s ease;
+    }
+
+    .card-thumb-link:hover img { filter: brightness(0.9); }
+
+    .card-body { flex: 1; min-width: 0; }
+
     .card-result-text {
       font-size: 15px;
       color: var(--ink);
@@ -818,6 +845,8 @@
       .case-study-row { flex-direction: column; align-items: flex-start; }
       .work-group-summary { padding: 16px 20px; font-size: 17px; }
       .work-group-content { padding: 16px 20px 20px; }
+      .standalone-card-flex { flex-direction: column; }
+      .card-thumb-link { width: 140px; }
       footer { padding: 24px; }
     }
   </style>
@@ -903,7 +932,7 @@
         <div class="exp-content">
           <div class="exp-title">AI Product Builder</div>
           <div class="exp-company">Independent AI Projects</div>
-          <div class="exp-desc">Reduced cost per prototype to about 1/28th at off-peak rates without losing quality, by blind-scoring 60 outputs across 3 models and selecting the lowest-cost one. Shipped 4 LLM-backed tools now live on Vercel with Claude Code, designed with human approval steps and guardrails so they inform decisions instead of making them. Caught 2 broken prototypes through hands-on browser testing that automated checks had passed.</div>
+          <div class="exp-desc">Reduced cost per prototype to about 1/28th at off-peak rates without losing quality, by blind-scoring 60 outputs across 3 models and choosing the one with the best quality for its cost. Shipped 4 LLM-backed tools now live on Vercel with Claude Code, designed with human approval steps and guardrails so they inform decisions instead of making them. Caught 2 broken prototypes through hands-on browser testing that automated checks had passed.</div>
         </div>
       </div>
       <div class="experience-item">
@@ -1119,18 +1148,29 @@
 
       <details class="work-group">
         <summary class="work-group-summary">
-          <span class="work-group-summary-left">Tools <span class="work-group-count">2</span></span>
+          <span class="work-group-summary-left">Live Tools <span class="work-group-count">2</span></span>
           <svg class="work-group-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
         </summary>
         <div class="work-group-content">
 
           <!-- Sentiment Analyzer -->
           <div class="standalone-card purple">
-            <div class="card-type"><span class="card-type-dot purple"></span>Live Tool · AI Powered</div>
-            <h3 class="card-title">Competitive Sentiment Analyzer</h3>
-            <div class="card-result-line">
-              <p class="card-section-label">Result</p>
-              <p class="card-result-text">Tested independently by 5 PMs, who found a mix of familiar and new insights.</p>
+            <div class="standalone-card-flex">
+              <a class="card-thumb-link" href="https://sentiment-analyzer.meghna.app/" target="_blank">
+                <img src="images/sentiment-analyzer-screenshot.jpg" alt="Competitive Sentiment Analyzer — click to open tool" loading="lazy" />
+              </a>
+              <div class="card-body">
+                <div class="card-type"><span class="card-type-dot purple"></span>Live Tool · AI Powered</div>
+                <h3 class="card-title">Competitive Sentiment Analyzer</h3>
+                <div class="card-ww-item">
+                  <p class="card-section-label">What it does</p>
+                  <p class="card-section-text">Compares two competing products using real user discussions from Reddit, Hacker News and DEV.to.</p>
+                </div>
+                <div class="card-result-line">
+                  <p class="card-section-label">Result</p>
+                  <p class="card-result-text">Tested independently by 5 PMs, who found a mix of familiar and new insights.</p>
+                </div>
+              </div>
             </div>
             <div class="card-footer">
               <div class="card-tags">
@@ -1147,11 +1187,22 @@
 
           <!-- Metrics Framework Builder -->
           <div class="standalone-card teal">
-            <div class="card-type"><span class="card-type-dot teal"></span>Live Tool · AI Powered</div>
-            <h3 class="card-title">Metrics Framework Builder</h3>
-            <div class="card-result-line">
-              <p class="card-section-label">Result</p>
-              <p class="card-result-text">Returned a value-based north star on all 8 products tested.</p>
+            <div class="standalone-card-flex">
+              <a class="card-thumb-link" href="https://metrics-framework-builder.meghna.app/" target="_blank">
+                <img src="images/metrics-framework-screenshot.jpg" alt="Metrics Framework Builder — click to open tool" loading="lazy" />
+              </a>
+              <div class="card-body">
+                <div class="card-type"><span class="card-type-dot teal"></span>Live Tool · AI Powered</div>
+                <h3 class="card-title">Metrics Framework Builder</h3>
+                <div class="card-ww-item">
+                  <p class="card-section-label">What it does</p>
+                  <p class="card-section-text">Turns six product inputs into a north star, input metrics, guardrails and the vanity metrics to avoid.</p>
+                </div>
+                <div class="card-result-line">
+                  <p class="card-section-label">Result</p>
+                  <p class="card-result-text">Returned a value-based north star on all 8 products tested.</p>
+                </div>
+              </div>
             </div>
             <div class="card-footer">
               <div class="card-tags">
@@ -1180,6 +1231,10 @@
           <div class="standalone-card purple">
             <div class="card-type"><span class="card-type-dot purple"></span>Platform Teardown</div>
             <h3 class="card-title">Stripe Platform Teardown</h3>
+            <div class="card-ww-item">
+              <p class="card-section-label">What it covers</p>
+              <p class="card-section-text">An outside-in analysis of Stripe's API design, ecosystem strategy and platform metrics.</p>
+            </div>
             <div class="card-result-line">
               <p class="card-section-label">Result</p>
               <p class="card-result-text">Recommended guided workflow paths in test mode, organized around what developers are building, to cut time to first successful payment.</p>
@@ -1198,6 +1253,10 @@
           <div class="standalone-card teal">
             <div class="card-type"><span class="card-type-dot teal"></span>Platform Teardown</div>
             <h3 class="card-title">Amazon Seller Central Teardown</h3>
+            <div class="card-ww-item">
+              <p class="card-section-label">What it covers</p>
+              <p class="card-section-text">An outside-in analysis of how Seller Central balances seller scale with buyer experience.</p>
+            </div>
             <div class="card-result-line">
               <p class="card-section-label">Result</p>
               <p class="card-result-text">Recommended a three-layer onboarding system that detects integration failures, alerts sellers in real time, and offers a manual fallback.</p>
