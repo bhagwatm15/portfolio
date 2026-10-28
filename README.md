@@ -10,7 +10,7 @@ index.html        — single page site
 pdfs/             — hosted PDF artifacts
 
 ## Live
-meghnabhagwat.com
+meghnabhagwat.com or meghna.app
 
 ## Built with
 HTML, CSS, vanilla JavaScript
