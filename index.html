@@ -557,6 +557,92 @@
 
     .card-btn-group { display: flex; gap: 8px; flex-wrap: wrap; }
 
+    /* CARD RESULT LINE */
+    .card-result-line { margin-bottom: 24px; }
+
+    .card-result-text {
+      font-size: 15px;
+      color: var(--ink);
+      font-weight: 600;
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    /* MORE WORK / EXPANDABLE GROUPS */
+    .more-work { margin-top: 56px; }
+
+    .more-work-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      color: var(--ink-light);
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .work-group {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--bg-card);
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+
+    .work-group:last-child { margin-bottom: 0; }
+
+    .work-group-summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 20px 28px;
+      cursor: pointer;
+      list-style: none;
+      font-family: 'Playfair Display', serif;
+      font-size: 19px;
+      font-weight: 500;
+      color: var(--ink);
+      transition: background 0.2s;
+    }
+
+    .work-group-summary::-webkit-details-marker { display: none; }
+    .work-group-summary::marker { content: ''; }
+
+    .work-group-summary:hover { background: var(--primary-light); }
+
+    .work-group-summary:focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: -2px;
+    }
+
+    .work-group-summary-left { display: flex; align-items: baseline; gap: 10px; }
+
+    .work-group-count {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink-light);
+    }
+
+    .work-group-chevron {
+      width: 18px;
+      height: 18px;
+      color: var(--ink-light);
+      flex-shrink: 0;
+      transition: transform 0.25s ease;
+    }
+
+    .work-group[open] .work-group-chevron { transform: rotate(180deg); }
+
+    .work-group-content {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 20px 28px 28px;
+      border-top: 1px solid var(--border);
+    }
+
     /* CASE STUDY ROW */
     .case-study-row {
       background: var(--bg-card);
@@ -730,6 +816,8 @@
       .card-what-why-grid { grid-template-columns: 1fr; }
       .experience-item { grid-template-columns: 1fr; gap: 8px; }
       .case-study-row { flex-direction: column; align-items: flex-start; }
+      .work-group-summary { padding: 16px 20px; font-size: 17px; }
+      .work-group-content { padding: 16px 20px 20px; }
       footer { padding: 24px; }
     }
   </style>
@@ -742,6 +830,7 @@
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
       <li><a href="#portfolio">Portfolio</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -788,8 +877,8 @@
       </div>
       <div class="about-stats">
         <div class="stat-item">
-          <div class="stat-number">6+</div>
-          <div class="stat-label">Years of product experience across enterprise SaaS and GovTech</div>
+          <div class="stat-number">12+</div>
+          <div class="stat-label">Years in tech, 6+ in product, across enterprise SaaS, GovTech, and banking.</div>
         </div>
         <div class="stat-item">
           <div class="stat-number">10k+</div>
@@ -860,29 +949,137 @@
     </div>
   </section>
 
+  <!-- EDUCATION -->
+  <section id="education">
+    <p class="section-label reveal">Academics</p>
+    <h2 class="section-title reveal">Education</h2>
+    <div class="section-divider reveal"></div>
+    <div class="experience-list reveal">
+      <div class="experience-item">
+        <div class="exp-date">Dec 2018</div>
+        <div class="exp-content">
+          <div class="exp-title">Master of Information Technology and Management</div>
+          <div class="exp-company">Illinois Institute of Technology</div>
+          <div class="exp-desc">Specialization in Management Information Systems</div>
+        </div>
+      </div>
+      <div class="experience-item">
+        <div class="exp-date">Jun 2011</div>
+        <div class="exp-content">
+          <div class="exp-title">Bachelor of Engineering, Electronics and Communication</div>
+          <div class="exp-company">Rajiv Gandhi Proudyogiki Vishwavidyalaya</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- PORTFOLIO -->
   <section id="portfolio">
     <p class="section-label reveal">Work</p>
     <h2 class="section-title reveal">Portfolio</h2>
     <div class="section-divider reveal"></div>
 
+    <p class="more-work-label reveal">Featured</p>
     <div class="portfolio-grid">
 
-       <!-- Decision Navigator -->
+      <!-- Idea to Prototype Pipeline -->
+      <div class="tool-card-wrap reveal">
+        <div class="tool-card blue">
+          <div class="tool-card-inner">
+            <div class="tool-card-text">
+              <div class="card-type"><span class="card-type-dot blue"></span>Live Tool · AI Powered</div>
+              <h3 class="card-title">Idea to Prototype Pipeline</h3>
+              <div class="card-result-line">
+                <p class="card-section-label">Result</p>
+                <p class="card-result-text">One-line idea to clickable prototype in 1–3 minutes, reviewed by 7 people across PM, design and engineering.</p>
+              </div>
+              <div class="card-what-why-grid">
+                <div class="card-ww-item">
+                  <p class="card-section-label">What it does</p>
+                  <p class="card-section-text">Turns a one-line idea into a structured spec covering the problem, target user, screens, and what's explicitly out of scope. It includes one editable review checkpoint, then Claude generates the prototype code directly, rendered live inside the app with Sandpack, no hosted preview dependency.</p>
+                </div>
+                <div class="card-ww-item">
+                  <p class="card-section-label">Why I built it</p>
+                  <p class="card-section-text">As a PM, turning a rough idea into something a stakeholder or engineer can respond to normally means writing a spec, then waiting on design or engineering time to see it as a real screen. I wanted to test whether AI could compress that loop into minutes, without needing to pull anyone else in first.</p>
+                </div>
+              </div>
+              <div class="card-footer">
+                <div class="card-tags">
+                  <span class="card-tag">AI Pipeline Design</span>
+                  <span class="card-tag">Claude API</span>
+                  <span class="card-tag">Sandpack</span>
+                </div>
+                <a href="https://idea-to-prototype.meghna.app/" target="_blank" class="card-btn blue">Try the tool ↗</a>
+              </div>
+            </div>
+            <div class="tool-card-preview">
+              <a href="https://idea-to-prototype.meghna.app/" target="_blank">
+                <img src="images/idea-to-prototype-screenshot.jpg" alt="Idea to Prototype Pipeline — click to open tool"
+                  onerror="this.parentElement.style.display='none'; this.parentElement.nextElementSibling.style.display='flex';" />
+              </a>
+              <div class="tool-card-preview-placeholder" style="display:none;">
+                <span style="font-size:32px;opacity:0.2;">◈</span>
+                <span>Screenshot coming soon</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="case-study-row">
+          <div>
+            <p class="case-study-label">📄 Case Study</p>
+            <p class="case-study-desc">Covers the three-stage build, a real PM working example, and what I learned building it, including negative prompts backfiring in image generation, cutting a stage that added no value, and why I replaced a hosted prototyping tool with Claude generating the prototype code directly, rendered in-app with Sandpack.</p>
+          </div>
+          <a href="pdfs/idea-to-prototype-case-study.pdf" target="_blank" class="case-study-link blue">Read Case Study ↗</a>
+        </div>
+      </div>
+
+      <!-- Idea to Prototype Model Evaluation -->
+      <div class="standalone-card purple reveal">
+        <div class="card-type"><span class="card-type-dot purple"></span>Model Evaluation</div>
+        <h3 class="card-title">Idea to Prototype Model Evaluation</h3>
+        <div class="card-result-line">
+          <p class="card-section-label">Result</p>
+          <p class="card-result-text">DeepSeek Flash matched Claude Sonnet 5 on quality at about 1/28th of the cost.</p>
+        </div>
+        <div class="card-what-why-stack">
+          <div class="card-ww-item">
+            <p class="card-section-label">What it covers</p>
+            <p class="card-section-text">An experiment comparing three AI models from three providers, Claude Sonnet 5, DeepSeek Flash, and GPT OSS 120B on Groq, across the two steps of my Idea to Prototype tool, writing the spec and writing the prototype code. Covers quality, speed, and cost per prototype, how a single setting changed DeepSeek's results, and where my own automated checks fell short.</p>
+          </div>
+          <div class="card-ww-item">
+            <p class="card-section-label">Why I wrote it</p>
+            <p class="card-section-text">My tool ran on a premium model that I'd never tested against alternatives. I wanted to find out whether a cheaper or faster model could do the same job, so I tested three models on quality, speed, and cost to find the most efficient choice for the tool, and to learn when routing across models is worth it.</p>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="card-tags">
+            <span class="card-tag">Model Evaluation</span>
+            <span class="card-tag">Cost vs Quality</span>
+            <span class="card-tag">Model Routing</span>
+          </div>
+          <a href="pdfs/model-evaluation.pdf" target="_blank" class="card-btn purple">Read Evaluation ↗</a>
+        </div>
+      </div>
+
+      <!-- Decision Navigator -->
       <div class="tool-card-wrap reveal">
         <div class="tool-card gold">
           <div class="tool-card-inner">
             <div class="tool-card-text">
               <div class="card-type"><span class="card-type-dot"></span>Live Tool · AI Powered</div>
               <h3 class="card-title">AI Decision Navigator</h3>
+              <div class="card-result-line">
+                <p class="card-section-label">Result</p>
+                <p class="card-result-text">Across 10 real decisions with 7 people, it never made the decision itself.</p>
+              </div>
               <div class="card-what-why-grid">
                 <div class="card-ww-item">
                   <p class="card-section-label">What it does</p>
-                  <p class="card-section-text">An AI-powered tool that structures thinking for high-stakes, ambiguous decisions. It clarifies context, surfaces assumptions, and lays out options without making the decision for you.</p>
+                  <p class="card-section-text">Surfaces the assumptions, constraints and options in a high-stakes decision while leaving the final call to the user.</p>
                 </div>
                 <div class="card-ww-item">
                   <p class="card-section-label">Why I built it</p>
-                  <p class="card-section-text">Job searching surfaces decision fatigue in ways I did not anticipate. Choosing between opportunities, roles, and tradeoffs under financial pressure needed structure, not more advice. The tool forces clarity before conclusions.</p>
+                  <p class="card-section-text">High-stakes decisions rarely have one right answer, and AI tools tend to jump to one anyway. I wanted to see whether prompt-layer guardrails could keep a model structuring the thinking without making the call. I closed 4 reasoning failures with guardrails and evaluated the tool on 5 qualitative criteria instead of accuracy, since no single answer was correct.</p>
                 </div>
               </div>
               <div class="card-footer">
@@ -914,220 +1111,109 @@
           <a href="pdfs/decision-navigator.pdf" target="_blank" class="case-study-link gold">Read Case Study ↗</a>
         </div>
       </div>
-      
-      <!-- Idea to Prototype Pipeline -->
-      <div class="tool-card-wrap reveal">
-        <div class="tool-card blue">
-          <div class="tool-card-inner">
-            <div class="tool-card-text">
-              <div class="card-type"><span class="card-type-dot blue"></span>Live Tool · AI Powered</div>
-              <h3 class="card-title">Idea to Prototype Pipeline</h3>
-              <div class="card-what-why-grid">
-                <div class="card-ww-item">
-                  <p class="card-section-label">What it does</p>
-                  <p class="card-section-text">Turns a one-line idea into a structured spec covering the problem, target user, screens, and what's explicitly out of scope. It includes one editable review checkpoint, then Claude generates the prototype code directly, rendered live inside the app with Sandpack, no hosted preview dependency.</p>
-                </div>
-                <div class="card-ww-item">
-                  <p class="card-section-label">Why I built it</p>
-                  <p class="card-section-text">As a PM, turning a rough idea into something a stakeholder or engineer can respond to normally means writing a spec, then waiting on design or engineering time to see it as a real screen. I wanted to test whether chaining AI tools could compress that loop into minutes, without needing to pull anyone else in first.</p>
-                </div>
-              </div>
-              <div class="card-footer">
-                <div class="card-tags">
-                  <span class="card-tag">AI Pipeline Design</span>
-                  <span class="card-tag">Claude API</span>
-                  <span class="card-tag">Sandpack</span>
-                </div>
-                <a href="https://idea-to-prototype.meghna.app/" target="_blank" class="card-btn blue">Try the tool ↗</a>
-              </div>
-            </div>
-            <div class="tool-card-preview">
-              <a href="https://idea-to-prototype.meghna.app/" target="_blank">
-                <img src="images/idea-to-prototype-screenshot.jpg" alt="Idea to Prototype Pipeline — click to open tool"
-                  onerror="this.parentElement.style.display='none'; this.parentElement.nextElementSibling.style.display='flex';" />
-              </a>
-              <div class="tool-card-preview-placeholder" style="display:none;">
-                <span style="font-size:32px;opacity:0.2;">◈</span>
-                <span>Screenshot coming soon</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="case-study-row">
-          <div>
-            <p class="case-study-label">📄 Case Study</p>
-            <p class="case-study-desc">Covers the three-stage build, a real PM working example, and what I learned chaining AI tools together, including negative prompts backfiring in image generation, cutting a stage that added no value, and why I replaced a hosted prototyping tool with Claude generating the prototype code directly, rendered in-app with Sandpack.</p>
-          </div>
-          <a href="pdfs/idea-to-prototype-case-study.pdf" target="_blank" class="case-study-link blue">Read Case Study ↗</a>
-        </div>
-      </div>
 
-      <!-- Idea to Prototype Model Evaluation -->
-      <div class="standalone-card purple reveal">
-        <div class="card-type"><span class="card-type-dot purple"></span>Model Evaluation</div>
-        <h3 class="card-title">Idea to Prototype Model Evaluation</h3>
-        <div class="card-what-why-stack">
-          <div class="card-ww-item">
-            <p class="card-section-label">What it covers</p>
-            <p class="card-section-text">An experiment comparing three AI models from three providers, Claude Sonnet 5, DeepSeek Flash, and GPT OSS 120B on Groq, across the two steps of my Idea to Prototype tool, writing the spec and writing the prototype code. Covers quality, speed, and cost per prototype, how a single setting changed DeepSeek's results, and where my own automated checks fell short.</p>
-          </div>
-          <div class="card-ww-item">
-            <p class="card-section-label">Why I wrote it</p>
-            <p class="card-section-text">My tool ran on a premium model that I'd never tested against alternatives. I wanted to find out whether a cheaper or faster model could do the same job, so I tested three models on quality, speed, and cost to find the most efficient choice for the tool, and to learn when routing across models is worth it.</p>
-          </div>
-        </div>
-        <div class="card-footer">
-          <div class="card-tags">
-            <span class="card-tag">Model Evaluation</span>
-            <span class="card-tag">Cost vs Quality</span>
-            <span class="card-tag">Model Routing</span>
-          </div>
-          <a href="pdfs/model-evaluation.pdf" target="_blank" class="card-btn purple">Read Evaluation ↗</a>
-        </div>
-      </div>
+    </div>
 
-      <!-- Sentiment Analyzer -->
-      <div class="tool-card-wrap reveal">
-        <div class="tool-card">
-          <div class="tool-card-inner">
-            <div class="tool-card-text">
-              <div class="card-type"><span class="card-type-dot"></span>Live Tool · AI Powered</div>
-              <h3 class="card-title">Competitive Sentiment Analyzer</h3>
-              <div class="card-what-why-grid">
-                <div class="card-ww-item">
-                  <p class="card-section-label">What it does</p>
-                  <p class="card-section-text">Pulls real user discussions from Reddit, Hacker News, and DEV.to and uses Claude to compare two competing products side by side — sentiment scores, top praises, pain points, and competitive insights.</p>
-                </div>
-                <div class="card-ww-item">
-                  <p class="card-section-label">Why I built it</p>
-                  <p class="card-section-text">I wanted to ground competitive analysis in actual user voice rather than assumptions. Applied it to Microsoft's ecosystem to identify unmet user needs and surface product opportunities.</p>
-                </div>
+    <div class="more-work reveal">
+      <p class="more-work-label">More work</p>
+
+      <details class="work-group">
+        <summary class="work-group-summary">
+          <span class="work-group-summary-left">Tools <span class="work-group-count">2</span></span>
+          <svg class="work-group-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </summary>
+        <div class="work-group-content">
+
+          <!-- Sentiment Analyzer -->
+          <div class="standalone-card purple">
+            <div class="card-type"><span class="card-type-dot purple"></span>Live Tool · AI Powered</div>
+            <h3 class="card-title">Competitive Sentiment Analyzer</h3>
+            <div class="card-result-line">
+              <p class="card-section-label">Result</p>
+              <p class="card-result-text">Tested independently by 5 PMs, who found a mix of familiar and new insights.</p>
+            </div>
+            <div class="card-footer">
+              <div class="card-tags">
+                <span class="card-tag">Competitive Intelligence</span>
+                <span class="card-tag">Claude API</span>
+                <span class="card-tag">React</span>
               </div>
-              <div class="card-footer">
-                <div class="card-tags">
-                  <span class="card-tag">Competitive Intelligence</span>
-                  <span class="card-tag">Claude API</span>
-                  <span class="card-tag">React</span>
-                </div>
+              <div class="card-btn-group">
                 <a href="https://sentiment-analyzer.meghna.app/" target="_blank" class="card-btn red">Try the tool ↗</a>
-              </div>
-            </div>
-            <div class="tool-card-preview">
-              <a href="https://sentiment-analyzer.meghna.app/" target="_blank">
-                <img src="images/sentiment-analyzer-screenshot.jpg" alt="Sentiment Analyzer — click to open tool"
-                  onerror="this.parentElement.style.display='none'; this.parentElement.nextElementSibling.style.display='flex';" />
-              </a>
-              <div class="tool-card-preview-placeholder" style="display:none;">
-                <span style="font-size:32px;opacity:0.2;">◈</span>
-                <span>Screenshot coming soon</span>
+                <a href="pdfs/sentiment-analyzer-case-study.pdf" target="_blank" class="card-btn red">Read Case Study ↗</a>
               </div>
             </div>
           </div>
-        </div>
-        <div class="case-study-row">
-          <div>
-            <p class="case-study-label">📄 Case Study</p>
-            <p class="case-study-desc">A competitive intelligence study applying the engine to Microsoft's ecosystem — Edge AI vs Chrome AI and Teams vs Slack. Covers methodology, findings, and product recommendations grounded in real user data.</p>
-          </div>
-          <a href="pdfs/sentiment-analyzer-case-study.pdf" target="_blank" class="case-study-link red">Read Case Study ↗</a>
-        </div>
-      </div>
 
-      <!-- Metrics Framework Builder -->
-      <div class="tool-card-wrap reveal">
-        <div class="tool-card green">
-          <div class="tool-card-inner">
-            <div class="tool-card-text">
-              <div class="card-type"><span class="card-type-dot green"></span>Live Tool · AI Powered</div>
-              <h3 class="card-title">Metrics Framework Builder</h3>
-              <div class="card-what-why-grid">
-                <div class="card-ww-item">
-                  <p class="card-section-label">What it does</p>
-                  <p class="card-section-text">Generates a rigorous, product-specific metrics framework — north star, three leading input metrics ranked by criticality, guardrail metrics, and the vanity metrics to avoid.</p>
-                </div>
-                <div class="card-ww-item">
-                  <p class="card-section-label">Why I built it</p>
-                  <p class="card-section-text">Metrics was the area I knew I needed to get sharper on. I studied the framework deliberately then built a tool that forces me to apply it every time while stopping me from defaulting to vanity metrics.</p>
-                </div>
+          <!-- Metrics Framework Builder -->
+          <div class="standalone-card teal">
+            <div class="card-type"><span class="card-type-dot teal"></span>Live Tool · AI Powered</div>
+            <h3 class="card-title">Metrics Framework Builder</h3>
+            <div class="card-result-line">
+              <p class="card-section-label">Result</p>
+              <p class="card-result-text">Returned a value-based north star on all 8 products tested.</p>
+            </div>
+            <div class="card-footer">
+              <div class="card-tags">
+                <span class="card-tag">Platform Metrics</span>
+                <span class="card-tag">Claude API</span>
+                <span class="card-tag">React</span>
               </div>
-              <div class="card-footer">
-                <div class="card-tags">
-                  <span class="card-tag">Platform Metrics</span>
-                  <span class="card-tag">Claude API</span>
-                  <span class="card-tag">React</span>
-                </div>
+              <div class="card-btn-group">
                 <a href="https://metrics-framework-builder.meghna.app/" target="_blank" class="card-btn green">Try the tool ↗</a>
-              </div>
-            </div>
-            <div class="tool-card-preview">
-              <a href="https://metrics-framework-builder.meghna.app/" target="_blank">
-                <img src="images/metrics-framework-screenshot.jpg" alt="Metrics Framework Builder — click to open tool"
-                  onerror="this.parentElement.style.display='none'; this.parentElement.nextElementSibling.style.display='flex';" />
-              </a>
-              <div class="tool-card-preview-placeholder" style="display:none;">
-                <span style="font-size:32px;opacity:0.2;">◈</span>
-                <span>Screenshot coming soon</span>
+                <a href="pdfs/metrics-framework-builder.pdf" target="_blank" class="card-btn green">Read Case Study ↗</a>
               </div>
             </div>
           </div>
-        </div>
-        <div class="case-study-row green">
-          <div>
-            <p class="case-study-label">📄 Case Study</p>
-            <p class="case-study-desc">Covers why the tool was built, the five-layer metrics framework it generates, and the shift from defaulting to vanity metrics to defining north stars grounded in real user value.</p>
-          </div>
-          <a href="pdfs/metrics-framework-builder.pdf" target="_blank" class="case-study-link green">Read Case Study ↗</a>
-        </div>
-      </div>
-     
-      <!-- Stripe Teardown -->
-      <div class="standalone-card purple reveal">
-        <div class="card-type"><span class="card-type-dot purple"></span>Platform Teardown</div>
-        <h3 class="card-title">Stripe Platform Teardown</h3>
-        <div class="card-what-why-stack">
-          <div class="card-ww-item">
-            <p class="card-section-label">What it covers</p>
-            <p class="card-section-text">A deep analysis of Stripe's API design philosophy, ecosystem extensibility strategy, and platform metrics. Includes an original product recommendation for reducing developer onboarding friction inside test mode.</p>
-          </div>
-          <div class="card-ww-item">
-            <p class="card-section-label">Why I wrote it</p>
-            <p class="card-section-text">I came at Stripe as a former backend engineer who built the financial systems Stripe abstracts away. That perspective gave me a specific lens on what they got right and why their moat is harder to replicate than most people think.</p>
-          </div>
-        </div>
-        <div class="card-footer">
-          <div class="card-tags">
-            <span class="card-tag">Platform Thinking</span>
-            <span class="card-tag">API Design</span>
-            <span class="card-tag">Ecosystem Strategy</span>
-          </div>
-          <a href="pdfs/stripe-teardown.pdf" target="_blank" class="card-btn purple">Read Teardown ↗</a>
-        </div>
-      </div>
 
-      <!-- Seller Central Teardown -->
-      <div class="standalone-card teal reveal">
-        <div class="card-type"><span class="card-type-dot teal"></span>Platform Teardown</div>
-        <h3 class="card-title">Amazon Seller Central Teardown</h3>
-        <div class="card-what-why-stack">
-          <div class="card-ww-item">
-            <p class="card-section-label">What it covers</p>
-            <p class="card-section-text">An analysis of how Amazon's seller platform balances ecosystem scale with buyer experience. Covers seller onboarding, the platform accountability paradox, analytics fragmentation, and the two metrics that tell you whether the platform is actually healthy.</p>
-          </div>
-          <div class="card-ww-item">
-            <p class="card-section-label">Why I wrote it</p>
-            <p class="card-section-text">Marketplaces are one of the most complex platform types to get right. They serve two distinct users simultaneously and have to balance their needs constantly. Studying Seller Central was a way to understand how a platform at massive scale makes that tradeoff, and what a buyer-first north star looks like in practice across every product decision.</p>
-          </div>
         </div>
-        <div class="card-footer">
-          <div class="card-tags">
-            <span class="card-tag">Marketplace Platform</span>
-            <span class="card-tag">Seller Experience</span>
-            <span class="card-tag">Platform Metrics</span>
-          </div>
-          <a href="pdfs/seller-central-teardown.pdf" target="_blank" class="card-btn teal">Read Teardown ↗</a>
-        </div>
-      </div>
+      </details>
 
+      <details class="work-group">
+        <summary class="work-group-summary">
+          <span class="work-group-summary-left">Teardowns <span class="work-group-count">2</span></span>
+          <svg class="work-group-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </summary>
+        <div class="work-group-content">
+
+          <!-- Stripe Teardown -->
+          <div class="standalone-card purple">
+            <div class="card-type"><span class="card-type-dot purple"></span>Platform Teardown</div>
+            <h3 class="card-title">Stripe Platform Teardown</h3>
+            <div class="card-result-line">
+              <p class="card-section-label">Result</p>
+              <p class="card-result-text">Recommended guided workflow paths in test mode, organized around what developers are building, to cut time to first successful payment.</p>
+            </div>
+            <div class="card-footer">
+              <div class="card-tags">
+                <span class="card-tag">Platform Thinking</span>
+                <span class="card-tag">API Design</span>
+                <span class="card-tag">Ecosystem Strategy</span>
+              </div>
+              <a href="pdfs/stripe-teardown.pdf" target="_blank" class="card-btn purple">Read Teardown ↗</a>
+            </div>
+          </div>
+
+          <!-- Seller Central Teardown -->
+          <div class="standalone-card teal">
+            <div class="card-type"><span class="card-type-dot teal"></span>Platform Teardown</div>
+            <h3 class="card-title">Amazon Seller Central Teardown</h3>
+            <div class="card-result-line">
+              <p class="card-section-label">Result</p>
+              <p class="card-result-text">Recommended a three-layer onboarding system that detects integration failures, alerts sellers in real time, and offers a manual fallback.</p>
+            </div>
+            <div class="card-footer">
+              <div class="card-tags">
+                <span class="card-tag">Marketplace Platform</span>
+                <span class="card-tag">Seller Experience</span>
+                <span class="card-tag">Platform Metrics</span>
+              </div>
+              <a href="pdfs/seller-central-teardown.pdf" target="_blank" class="card-btn teal">Read Teardown ↗</a>
+            </div>
+          </div>
+
+        </div>
+      </details>
     </div>
   </section>
 
