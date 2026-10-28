@@ -391,7 +391,11 @@
       grid-template-columns: 3fr 2fr;
     }
 
-    .tool-card-text { padding: 36px; }
+    .tool-card-text { padding: 36px 36px 0 36px; }
+
+    /* Footer sits outside the grid so the preview column's height excludes it,
+       letting the screenshot's bottom edge land exactly at the footer ribbon. */
+    .tool-card > .card-footer { margin: 0; }
 
     .tool-card-preview {
       border-left: 1px solid var(--border);
@@ -569,7 +573,7 @@
       flex: 0 0 38%;
       max-width: 260px;
       order: 2;
-      margin: -36px -36px -36px 0;
+      margin: -36px -36px 0 0;
       border-left: 1px solid var(--border);
       background: var(--bg);
       display: flex;
@@ -1047,14 +1051,6 @@
                 <p class="card-section-label">Result</p>
                 <p class="card-result-text">One-line idea to clickable prototype in 1–3 minutes, reviewed by 7 people across PM, design and engineering.</p>
               </div>
-              <div class="card-footer">
-                <div class="card-tags">
-                  <span class="card-tag">AI Pipeline Design</span>
-                  <span class="card-tag">Claude API</span>
-                  <span class="card-tag">Sandpack</span>
-                </div>
-                <a href="https://idea-to-prototype.meghna.app/" target="_blank" class="card-btn blue">Try the tool ↗</a>
-              </div>
             </div>
             <div class="tool-card-preview">
               <a href="https://idea-to-prototype.meghna.app/" target="_blank">
@@ -1066,6 +1062,14 @@
                 <span>Screenshot coming soon</span>
               </div>
             </div>
+          </div>
+          <div class="card-footer">
+            <div class="card-tags">
+              <span class="card-tag">AI Pipeline Design</span>
+              <span class="card-tag">Claude API</span>
+              <span class="card-tag">Sandpack</span>
+            </div>
+            <a href="https://idea-to-prototype.meghna.app/" target="_blank" class="card-btn blue">Try the tool ↗</a>
           </div>
         </div>
         <div class="case-study-row">
@@ -1126,14 +1130,6 @@
                 <p class="card-section-label">Result</p>
                 <p class="card-result-text">Across 10 real decisions with 7 people, it never made the decision itself.</p>
               </div>
-              <div class="card-footer">
-                <div class="card-tags">
-                  <span class="card-tag">Decision Making</span>
-                  <span class="card-tag">Claude API</span>
-                  <span class="card-tag">Next.js</span>
-                </div>
-                <a href="https://decision-navigator.meghna.app/" target="_blank" class="card-btn gold">Try the tool ↗</a>
-              </div>
             </div>
             <div class="tool-card-preview">
               <a href="https://decision-navigator.meghna.app/" target="_blank">
@@ -1145,6 +1141,14 @@
                 <span>Screenshot coming soon</span>
               </div>
             </div>
+          </div>
+          <div class="card-footer">
+            <div class="card-tags">
+              <span class="card-tag">Decision Making</span>
+              <span class="card-tag">Claude API</span>
+              <span class="card-tag">Next.js</span>
+            </div>
+            <a href="https://decision-navigator.meghna.app/" target="_blank" class="card-btn gold">Try the tool ↗</a>
           </div>
         </div>
         <div class="case-study-row">
