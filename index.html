@@ -465,6 +465,7 @@
     
     .card-type-dot.purple { background: var(--secondary); }
     .card-type-dot.teal { background: var(--secondary); }
+    .card-type-dot.gold { background: var(--secondary); }
 
     .card-title {
       font-family: 'Playfair Display', serif;
@@ -1109,31 +1110,31 @@
         </div>
       </div>
 
-      <!-- Decision Navigator -->
+      <!-- Sentiment Analyzer -->
       <div class="tool-card-wrap reveal">
-        <div class="tool-card gold">
+        <div class="tool-card">
           <div class="tool-card-inner">
             <div class="tool-card-text">
               <div class="card-type"><span class="card-type-dot"></span>Live Tool · AI Powered</div>
-              <h3 class="card-title">AI Decision Navigator</h3>
+              <h3 class="card-title">Competitive Sentiment Analyzer</h3>
               <div class="card-what-why-grid">
                 <div class="card-ww-item">
                   <p class="card-section-label">What it does</p>
-                  <p class="card-section-text">Surfaces the assumptions, constraints and options in a high-stakes decision while leaving the final call to the user.</p>
+                  <p class="card-section-text">Compares two competing products using real user discussions from Reddit, Hacker News and DEV.to.</p>
                 </div>
                 <div class="card-ww-item">
                   <p class="card-section-label">Why I built it</p>
-                  <p class="card-section-text">High-stakes decisions rarely have one right answer, and AI tools tend to jump to one anyway. I wanted to see whether prompt-layer guardrails could keep a model structuring the thinking without making the call. I closed 4 reasoning failures with guardrails and evaluated the tool on 5 qualitative criteria instead of accuracy, since no single answer was correct.</p>
+                  <p class="card-section-text">I wanted to ground competitive analysis in actual user voice rather than assumptions. Applied it to Microsoft's ecosystem to identify unmet user needs and surface product opportunities.</p>
                 </div>
               </div>
               <div class="card-result-line">
                 <p class="card-section-label">Result</p>
-                <p class="card-result-text">Across 10 real decisions with 7 people, it never made the decision itself.</p>
+                <p class="card-result-text">Tested independently by 5 PMs, who found a mix of familiar and new insights.</p>
               </div>
             </div>
             <div class="tool-card-preview">
-              <a href="https://decision-navigator.meghna.app/" target="_blank">
-                <img src="images/decision-navigator-screenshot.jpg" alt="AI Decision Navigator — click to open tool"
+              <a href="https://sentiment-analyzer.meghna.app/" target="_blank">
+                <img src="images/sentiment-analyzer-screenshot.jpg" alt="Competitive Sentiment Analyzer — click to open tool"
                   onerror="this.parentElement.style.display='none'; this.parentElement.nextElementSibling.style.display='flex';" />
               </a>
               <div class="tool-card-preview-placeholder" style="display:none;">
@@ -1144,19 +1145,19 @@
           </div>
           <div class="card-footer">
             <div class="card-tags">
-              <span class="card-tag">Decision Making</span>
+              <span class="card-tag">Competitive Intelligence</span>
               <span class="card-tag">Claude API</span>
-              <span class="card-tag">Next.js</span>
+              <span class="card-tag">React</span>
             </div>
-            <a href="https://decision-navigator.meghna.app/" target="_blank" class="card-btn gold">Try the tool ↗</a>
+            <a href="https://sentiment-analyzer.meghna.app/" target="_blank" class="card-btn red">Try the tool ↗</a>
           </div>
         </div>
         <div class="case-study-row">
           <div>
             <p class="case-study-label">📄 Case Study</p>
-            <p class="case-study-desc">Covers writing the system prompt like a PRD, with each rule targeting a specific failure mode, like jumping to advice too early, projecting false certainty, or letting emotional bias shape the reasoning. Also covers the qualitative evaluation framework used in place of a right answer, and honest learnings like how vague inputs still led to vague outputs.</p>
+            <p class="case-study-desc">A competitive intelligence study applying the engine to Microsoft's ecosystem — Edge AI vs Chrome AI and Teams vs Slack. Covers methodology, findings, and product recommendations grounded in real user data.</p>
           </div>
-          <a href="pdfs/decision-navigator.pdf" target="_blank" class="case-study-link gold">Read Case Study ↗</a>
+          <a href="pdfs/sentiment-analyzer-case-study.pdf" target="_blank" class="case-study-link red">Read Case Study ↗</a>
         </div>
       </div>
 
@@ -1167,42 +1168,10 @@
 
       <details class="work-group">
         <summary class="work-group-summary">
-          <span class="work-group-summary-left">Live Tools <span class="work-group-count">2</span></span>
+          <span class="work-group-summary-left">Live Tools <span class="work-group-count">3</span></span>
           <svg class="work-group-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
         </summary>
         <div class="work-group-content">
-
-          <!-- Sentiment Analyzer -->
-          <div class="standalone-card purple">
-            <div class="standalone-card-flex">
-              <a class="card-thumb-link" href="https://sentiment-analyzer.meghna.app/" target="_blank">
-                <img src="images/sentiment-analyzer-screenshot.jpg" alt="Competitive Sentiment Analyzer — click to open tool" loading="lazy" />
-              </a>
-              <div class="card-body">
-                <div class="card-type"><span class="card-type-dot purple"></span>Live Tool · AI Powered</div>
-                <h3 class="card-title">Competitive Sentiment Analyzer</h3>
-                <div class="card-ww-item">
-                  <p class="card-section-label">What it does</p>
-                  <p class="card-section-text">Compares two competing products using real user discussions from Reddit, Hacker News and DEV.to.</p>
-                </div>
-                <div class="card-result-line">
-                  <p class="card-section-label">Result</p>
-                  <p class="card-result-text">Tested independently by 5 PMs, who found a mix of familiar and new insights.</p>
-                </div>
-              </div>
-            </div>
-            <div class="card-footer">
-              <div class="card-tags">
-                <span class="card-tag">Competitive Intelligence</span>
-                <span class="card-tag">Claude API</span>
-                <span class="card-tag">React</span>
-              </div>
-              <div class="card-btn-group">
-                <a href="https://sentiment-analyzer.meghna.app/" target="_blank" class="card-btn red">Try the tool ↗</a>
-                <a href="pdfs/sentiment-analyzer-case-study.pdf" target="_blank" class="card-btn red">Read Case Study ↗</a>
-              </div>
-            </div>
-          </div>
 
           <!-- Metrics Framework Builder -->
           <div class="standalone-card teal">
@@ -1232,6 +1201,38 @@
               <div class="card-btn-group">
                 <a href="https://metrics-framework-builder.meghna.app/" target="_blank" class="card-btn green">Try the tool ↗</a>
                 <a href="pdfs/metrics-framework-builder.pdf" target="_blank" class="card-btn green">Read Case Study ↗</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Decision Navigator -->
+          <div class="standalone-card gold">
+            <div class="standalone-card-flex">
+              <a class="card-thumb-link" href="https://decision-navigator.meghna.app/" target="_blank">
+                <img src="images/decision-navigator-screenshot.jpg" alt="AI Decision Navigator — click to open tool" loading="lazy" />
+              </a>
+              <div class="card-body">
+                <div class="card-type"><span class="card-type-dot gold"></span>Live Tool · AI Powered</div>
+                <h3 class="card-title">AI Decision Navigator</h3>
+                <div class="card-ww-item">
+                  <p class="card-section-label">What it does</p>
+                  <p class="card-section-text">Surfaces the assumptions, constraints and options in a high-stakes decision while leaving the final call to the user.</p>
+                </div>
+                <div class="card-result-line">
+                  <p class="card-section-label">Result</p>
+                  <p class="card-result-text">Across 10 real decisions with 7 people, it never made the decision itself.</p>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer">
+              <div class="card-tags">
+                <span class="card-tag">Decision Making</span>
+                <span class="card-tag">Claude API</span>
+                <span class="card-tag">Next.js</span>
+              </div>
+              <div class="card-btn-group">
+                <a href="https://decision-navigator.meghna.app/" target="_blank" class="card-btn gold">Try the tool ↗</a>
+                <a href="pdfs/decision-navigator.pdf" target="_blank" class="card-btn gold">Read Case Study ↗</a>
               </div>
             </div>
           </div>
